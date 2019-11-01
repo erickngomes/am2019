@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:AmApp.ViewModel"
+             x:Class="AmApp.Views.PesquisaEmAndamento"
+             Title="Pesquisa em progresso">
+
+    <ContentPage.BindingContext>
+        <vm:PesquisaEmAndamentoViewModel></vm:PesquisaEmAndamentoViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Margin="30" >
+            <Label Text="{Binding Pesquisa.CPF, StringFormat='Pesquisa do CPF: {0:F0} em progresso'}" HorizontalTextAlignment="Center" FontSize="Large" Margin="0, 10, 0, 30"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

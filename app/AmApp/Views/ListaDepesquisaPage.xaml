@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tapped="clr-namespace:AmApp.Views.Components"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:AmApp.ViewModel"
+             x:Class="AmApp.Views.ListaDePesquisaPage"
+             Title="Lista de pesquisas">
+
+    <ContentPage.BindingContext>
+        <vm:ListaDePesquisaViewModel></vm:ListaDePesquisaViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="StartAndExpand" Margin="10">
+        <Label FontSize="Large" Text="Pesquisas" HorizontalOptions="CenterAndExpand"></Label>
+
+            <ListView ItemsSource="{Binding ListaDePesquisaPosicao}" 
+                      SelectedItem="{Binding PesquisaSelecionada}" 
+                      tapped:ItemTappedAttached.Command="{Binding PesquisaTappedCommand}"
+                      HasUnevenRows="true">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+                                <Label FontSize="Medium" Text="{Binding NOME_COMPLETO}" FontAttributes="Bold"></Label>
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label FontSize="Small" Text="{Binding CPF , StringFormat='CPF: {0:F0}'}" FontAttributes="Bold"></Label>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label FontSize="Small" Text="{Binding PESQUISA_STATUS, StringFormat='Status: {0:F0}'}" FontAttributes=" Bold"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

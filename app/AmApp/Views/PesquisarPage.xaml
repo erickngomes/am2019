@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:AmApp.ViewModel"
+             x:Class="AmApp.Views.PesquisarPage"
+             Title="Pesquisar">
+    
+    <ContentPage.BindingContext>
+        <vm:PesquisarPageViewModel></vm:PesquisarPageViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="30">
+
+            <Label Text="CPF:"></Label>
+            <Entry Placeholder="Digite o CPF" Text="{Binding Pesquisa.CPF}" ></Entry>
+
+            <Label Text="RG:"></Label>
+            <Entry Placeholder="Digite o RG" Text="{Binding Pesquisa.RG}" ></Entry>
+
+
+            <Button Text="Pesquisar" 
+                    Command ="{Binding PesquisarClickedCommand}" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
