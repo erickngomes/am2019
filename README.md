@@ -30,11 +30,11 @@ Os arquivos encontram-se em **/api**
 Basta rodar o arquivo encontrado em **/bd** para preparar o ambiente
 
 
+## Aplicativo
+
+Desenvolvido em Xamarin.forms. Também deve estar com banco e api conectados para seu funcionamento. Encontra-se em **/app**
+
 ## Fluxo
 
 Detalhamento do fluxo de pesquisa de Pessoas na raiz do repositório
 
-
-## Aplicativo
-
-Desenvolvido em Xamarin.forms. Também deve estar com banco e api conectados para seu funcionamento. Encontra-se em **/app**
