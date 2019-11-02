@@ -48,7 +48,8 @@ export class PersonComponent implements OnInit {
     public search = () => {
         var parm = {
             cpf: this.person.cpf,
-            rg: this.person.rg
+            rg: this.person.rg,
+            cnpj: this.person.cnpj
         };
         this.callApi('doc', parm, 'search');
     };
@@ -66,8 +67,11 @@ export class PersonComponent implements OnInit {
         if (parm.cpf)
             url += '&cpf=' + parm.cpf;
         if (parm.rg)
-            url += '&rg=' + parm.rg
+            url += '&rg=' + parm.rg;
+        if (parm.cnpj)
+            url += '&cnpj=' + parm.cnpj;
 
+        console.log(url);
         this.getApiData(url, 'person', from);
         this.isLoading = false;
     }
@@ -178,8 +182,6 @@ export class PersonComponent implements OnInit {
     validateValue(value, key) {
         if (typeof value == 'string' && !key.startsWith('PDF_') && !key.startsWith('IMG_') && value.indexOf('T0') > -1) {
             return value.split('T0')[0];
-        } else if (key.startsWith('IMG_')) {
-            return 'data:image/jpeg;base64,' + value;
         } else
             return value;
     }
